@@ -1,1 +1,22 @@
+on:
+  push:
+    branches: 
+      - master
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: 'meminfo action'
+        id: 'hello'
+        uses: ./
+        with:
+          myInput: 'Divyesh Ramani'
+      - name: Output
+        run: |
+          echo "${{ steps.hello.outputs.memory }}
+          echo "total memory successful output"
 
+        
+      
